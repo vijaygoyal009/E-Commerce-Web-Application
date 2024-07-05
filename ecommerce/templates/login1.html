@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}<div class='container' align='center' style='background-color:blue'>
+<form method="post" >
+    {% csrf_token %}
+    <table>
+        <tr><th>
+            {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>  {% endif %}</th></tr>
+  
+        <tr><th><input type='text' name=username placeholder='username' ></tr>
+            <tr><th><input type='password' name=password placeholder='password' ></tr>
+        <tr><td>I dont have a account <a href="/account/login/">Register</a>
+        </td></tr>
+        <tr><th><input type='submit' ></th>
+            <th><input type='reset' ></th></tr></table>
+            </table>
+</form>
+</div>
+{% endblock %}

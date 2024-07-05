@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{%block content %}<div class='container' align='center' style='background-color:blue'>
+<form  method="POST" >
+  {% csrf_token %} 
+    <section class=container style="text-align:center">
+    <table align='center'>
+        <tr><th>
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>{% endif %}</th></tr>
+
+        <tr><th><input type='text' name=first_name placeholder='first_Name'></th></tr>
+        <tr><th><input type='text' name=last_name placeholder='last_Name'></th></tr>
+        <tr><th><input type='text' name=username placeholder='username'></th></tr>
+        <tr><th><input type='email' name=email placeholder='Email'></th></tr>
+        <tr><th><input type='password' name=password placeholder='Password'></th></tr>
+        <tr><td>I have an account <a href="/account/login1/">Log-in</a>
+        </td></tr>
+        <tr><th><input type='submit' ></th>
+            <th><input type='reset' ></th></tr></table>
+        </section>
+</form></div>
+{% endblock %}
